@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.annotation.PostConstruct;
 
-
 @SpringBootApplication
 public class BookstoreAwsApplication {
 	
@@ -22,5 +21,4 @@ public class BookstoreAwsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreAwsApplication.class, args);
 	}
-
 }

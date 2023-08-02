@@ -29,21 +29,21 @@ public class BookController {
     public @ResponseBody BookEntity getBook(@PathVariable Long id) {
         return bookRepository.findById(id).get();
     }
-    @GetMapping
+    @GetMapping(value = "/list", produces = "application/json")
     public List<BookEntity> getAllBooks() {
         return (List<BookEntity>) bookRepository.findAll();
     }
-    @PostMapping
+    @PostMapping(value = "/add", produces = "application/json")
     public BookEntity createBook(@RequestBody BookEntity book) {
     	System.out.println("Save Book:"+book.toString());
         return bookRepository.save(book);
     }
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public BookEntity updateBook(@PathVariable("id") Long id, @RequestBody BookEntity book) {
     	System.out.println("update Book:"+book.toString());
     	return bookRepository.save(book);
     }
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public void removeBook(@PathVariable Long id) {
     	bookRepository.deleteById(id);
     }
